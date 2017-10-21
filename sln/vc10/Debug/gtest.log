@@ -1,0 +1,9 @@
+﻿Build started 21.10.2017 22:56:57.
+     1>Project "C:\Users\sasha\mp2-lab2-matrix\sln\vc10\gtest.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         gtest.vcxproj -> C:\Users\sasha\mp2-lab2-matrix\sln\vc10\Debug\gtest.lib
+     1>Done Building Project "C:\Users\sasha\mp2-lab2-matrix\sln\vc10\gtest.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.04
