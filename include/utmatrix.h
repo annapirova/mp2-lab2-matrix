@@ -116,7 +116,7 @@ bool TVector<ValType>::operator==(const TVector &v) const
 
 template <class ValType> // сравнение
 bool TVector<ValType>::operator!=(const TVector &v) const
-{
+/*{
 	if (Size!=v.Size) 
 		return true;
 	else
@@ -129,7 +129,11 @@ bool TVector<ValType>::operator!=(const TVector &v) const
 		}
 		return false;
 	}
+}*/
+{
+return !(*this==v);
 } 
+
 
 template <class ValType> // присваивание
 TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
