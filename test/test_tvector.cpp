@@ -36,7 +36,7 @@ TEST(TVector, copied_vector_is_equal_to_source_one)
 	a[2] = 7;
 	a[3] = 1;
 	a[4] = 4;
-	TVector<int> b = a;
+	TVector<int> b(a);
 	EXPECT_EQ(5, b[0]);
 	EXPECT_EQ(3, b[1]);
 	EXPECT_EQ(7, b[2]);
@@ -47,8 +47,8 @@ TEST(TVector, copied_vector_is_equal_to_source_one)
 TEST(TVector, copied_vector_has_its_own_memory)
 {
 	TVector<int> a(3);
-	TVector<int> b = a;
-	EXPECT_NE(&a, &b);
+	TVector<int> b(a);
+	EXPECT_NE(&a[0], &b[0]);
 }
 
 TEST(TVector, can_get_size)
@@ -91,12 +91,16 @@ TEST(TVector, can_assign_vector_to_itself)
 TEST(TVector, can_assign_vectors_of_equal_size)
 {
 	TVector<int> a(5), b(5);
-	ASSERT_NO_THROW(a = b);
+	// заполнить
+
+	EXPECT_EQ(b, a);
 }
 
 TEST(TVector, assign_operator_change_vector_size)
 {
 	TVector<int> a(5), b(6);
+	// заполнить
+
 	a = b;
 	EXPECT_EQ(6, a.GetSize());
 }
@@ -104,12 +108,17 @@ TEST(TVector, assign_operator_change_vector_size)
 TEST(TVector, can_assign_vectors_of_different_size)
 {
 	TVector<int> a(5), b(6);
-	ASSERT_NO_THROW(a = b);
+	// заполнить
+	a = b;
+	// проверить, что стали одинаковые
+	EXPECT_EQ(b, a);
+	//ASSERT_NO_THROW(a = b);
 }
 
 TEST(TVector, compare_equal_vectors_return_true)
 {
 	TVector<int> a(5), b(5);
+	// заполнить
 	EXPECT_TRUE(a == b);
 }
 
@@ -132,9 +141,9 @@ TEST(TVector, can_add_scalar_to_vector)
 	a[1] = 1;
 	a[2] = 8;
 	a = a + 4;
-	ASSERT_NO_THROW(6, a[0]);
-	ASSERT_NO_THROW(5, a[1]);
-	ASSERT_NO_THROW(12, a[2]);
+	EXPECT_EQ(6, a[0]);
+	EXPECT_EQ(5, a[1]);
+	EXPECT_EQ(12, a[2]);
 }
 
 TEST(TVector, can_subtract_scalar_from_vector)
@@ -144,9 +153,9 @@ TEST(TVector, can_subtract_scalar_from_vector)
 	a[1] = 1;
 	a[2] = 8;
 	a = a - 2;
-	ASSERT_NO_THROW(0, a[0]);
-	ASSERT_NO_THROW(-1, a[1]);
-	ASSERT_NO_THROW(6, a[2]);
+	EXPECT_EQ(0, a[0]);
+	EXPECT_EQ(-1, a[1]);
+	EXPECT_EQ(6, a[2]);
 }
 
 TEST(TVector, can_multiply_scalar_by_vector)
@@ -156,9 +165,9 @@ TEST(TVector, can_multiply_scalar_by_vector)
 	a[1] = 1;
 	a[2] = 8;
 	a = a * (-2);
-	ASSERT_NO_THROW(-4, a[0]);
-	ASSERT_NO_THROW(-2, a[1]);
-	ASSERT_NO_THROW(-16, a[2]);
+	EXPECT_EQ(-4, a[0]);
+	EXPECT_EQ(-2, a[1]);
+	EXPECT_EQ(-16, a[2]);
 }
 
 TEST(TVector, can_add_vectors_with_equal_size)
@@ -171,9 +180,9 @@ TEST(TVector, can_add_vectors_with_equal_size)
 	b[1] = 3;
 	b[2] = 0;
 	c = a + b;
-	ASSERT_NO_THROW(-2, c[0]);
-	ASSERT_NO_THROW(4, c[1]);
-	ASSERT_NO_THROW(8, c[2]);
+	EXPECT_EQ(-2, c[0]);
+	EXPECT_EQ(4, c[1]);
+	EXPECT_EQ(8, c[2]);
 }
 
 TEST(TVector, cant_add_vectors_with_not_equal_size)
@@ -192,9 +201,9 @@ TEST(TVector, can_subtract_vectors_with_equal_size)
 	b[1] = 3;
 	b[2] = 0;
 	c = a - b;
-	ASSERT_NO_THROW(6, c[0]);
-	ASSERT_NO_THROW(-2, c[1]);
-	ASSERT_NO_THROW(8, c[2]);
+	EXPECT_EQ(6, c[0]);
+	EXPECT_EQ(-2, c[1]);
+	EXPECT_EQ(8, c[2]);
 }
 
 TEST(TVector, cant_subtract_vectors_with_not_equal_size)
@@ -214,7 +223,7 @@ TEST(TVector, can_multiply_vectors_with_equal_size)
 	b[1] = 3;
 	b[2] = 0;
 	c = a * b;
-	ASSERT_NO_THROW(-5, c);
+	EXPECT_EQ(-5, c);
 }
 
 TEST(TVector, cant_multiply_vectors_with_not_equal_size)
