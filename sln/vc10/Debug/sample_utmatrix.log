@@ -1,0 +1,14 @@
+﻿Build started 21.10.2017 22:50:54.
+     1>Project "C:\Users\sasha\mp2-lab2-matrix\sln\vc10\sample_utmatrix.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I../../include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\samples\sample_matrix.cpp
+         sample_matrix.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\sasha\mp2-lab2-matrix\sln\vc10\Debug\sample_utmatrix.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\sasha\mp2-lab2-matrix\sln\vc10\Debug\sample_utmatrix.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\sasha\mp2-lab2-matrix\sln\vc10\Debug\sample_utmatrix.lib" /MACHINE:X86 /SAFESEH Debug\sample_matrix.obj
+     1>sample_matrix.obj : warning LNK4099: PDB 'vc110.pdb' was not found with 'sample_matrix.obj' or at 'C:\Users\sasha\mp2-lab2-matrix\sln\vc10\Debug\vc110.pdb'; linking object as if no debug info
+         sample_utmatrix.vcxproj -> C:\Users\sasha\mp2-lab2-matrix\sln\vc10\Debug\sample_utmatrix.exe
+     1>Done Building Project "C:\Users\sasha\mp2-lab2-matrix\sln\vc10\sample_utmatrix.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.88
