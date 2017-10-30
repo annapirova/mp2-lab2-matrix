@@ -85,22 +85,46 @@ TEST(TVector, throws_when_set_element_with_too_large_index)
 TEST(TVector, can_assign_vector_to_itself)
 {
 	TVector<int> a(5);
-	ASSERT_NO_THROW(a = a);
+	a[0] = 1;
+	a[1] = 9;
+	a[2] = 11;
+	a[3] = 0; 
+	a[4] = 7;
+	a=a;
+	EXPECT_EQ(a, a);
 }
 
 TEST(TVector, can_assign_vectors_of_equal_size)
 {
 	TVector<int> a(5), b(5);
-	// заполнить
-
+	a[0] = 1;
+	a[1] = 9;
+	a[2] = 11;
+	a[3] = 0; 
+	a[4] = 7;
+	b[0] = 14;
+	b[1] = 1;
+	b[2] = 6;
+	b[3] = 10;
+	b[4] = 13;
+	a=b;
 	EXPECT_EQ(b, a);
 }
 
 TEST(TVector, assign_operator_change_vector_size)
 {
 	TVector<int> a(5), b(6);
-	// заполнить
-
+	a[0] = 1;
+	a[1] = 9;
+	a[2] = 11;
+	a[3] = 0; 
+	a[4] = 7;
+	b[0] = 14;
+	b[1] = 1;
+	b[2] = 6;
+	b[3] = 10;
+	b[4] = 13;
+	b[5] = 15;
 	a = b;
 	EXPECT_EQ(6, a.GetSize());
 }
@@ -108,23 +132,45 @@ TEST(TVector, assign_operator_change_vector_size)
 TEST(TVector, can_assign_vectors_of_different_size)
 {
 	TVector<int> a(5), b(6);
-	// заполнить
+	a[0] = 1;
+	a[1] = 9;
+	a[2] = 11;
+	a[3] = 0; 
+	a[4] = 7;
+	b[0] = 14;
+	b[1] = 1;
+	b[2] = 6;
+	b[3] = 10;
+	b[4] = 13;
+	b[5] = 15;
 	a = b;
-	// проверить, что стали одинаковые
-	EXPECT_EQ(b, a);
-	//ASSERT_NO_THROW(a = b);
+    EXPECT_EQ(a, b);
 }
 
 TEST(TVector, compare_equal_vectors_return_true)
 {
 	TVector<int> a(5), b(5);
-	// заполнить
+	a[0] = 1;
+	a[1] = 9;
+	a[2] = 11;
+	a[3] = 0; 
+	a[4] = 7;
+	b[0] = 1;
+	b[1] = 9;
+	b[2] = 11;
+	b[3] = 0;
+	b[4] = 7;
 	EXPECT_TRUE(a == b);
 }
 
 TEST(TVector, compare_vector_with_itself_return_true)
 {
 	TVector<int> a(5);
+	a[0] = 1;
+	a[1] = 9;
+	a[2] = 11;
+	a[3] = 0; 
+	a[4] = 7;
 	EXPECT_TRUE(a == a);
 }
 
