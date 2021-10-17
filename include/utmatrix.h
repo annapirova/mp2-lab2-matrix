@@ -98,6 +98,8 @@ ValType& TVector<ValType>::operator[](int pos)
 template <class ValType> // сравнение
 bool TVector<ValType>::operator==(const TVector &v) const
 {
+    if (StartIndex != v.startIndex)
+        return false;
     if (Size != v.Size) 
         return false;
     for (int i = 0; i < Size; i++) {
@@ -164,6 +166,8 @@ TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 template <class ValType> // сложение
 TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
+    if (StartIndex != v.startIndex)
+        throw "Mismatch of elements";
     if (Size != v.Size) 
         throw "Mismatch of elements";
     TVector<ValType> temp(*this);
@@ -175,6 +179,8 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 template <class ValType> // вычитание
 TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 {
+    if (StartIndex != v.startIndex)
+        throw "Mismatch of elements";
     if (Size != v.Size) 
         throw "Mismatch of elements";
     TVector<ValType> temp(*this);
