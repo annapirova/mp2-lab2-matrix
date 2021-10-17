@@ -262,18 +262,14 @@ class TMatrix : public TVector<TVector<ValType>>
        return *this;
     } 
     template <class ValType> // сложение
-    TMatrix<ValType> TMatrix<ValType>::operator+(const TMatrix<ValType> &mt)
-    { TMatrix R(Size);
-      for (int i = 0; i < Size; i++)
-      { R.pVector[i] = (*this).pVector[i]+mt.pVector[i];}
-      return R;
-    } 
+    TMatrix<ValType> TMatrix<ValType>::operator+(const TMatrix<ValType>& mt)
+    {
+        return TVector <TVector<ValType> >:: operator +(mt);
+    }
     template <class ValType> // вычитание
-    TMatrix<ValType> TMatrix<ValType>::operator-(const TMatrix<ValType> &mt)
-    { TMatrix R;
-      for (int i = 0; i < Size; i++)
-      { R.pVector[i] = (*this).pVector[i]-mt.pVector[i];}
-      return R;
+    TMatrix<ValType> TMatrix<ValType>::operator-(const TMatrix<ValType>& mt)
+    {
+        return TVector <TVector<ValType> >:: operator -(mt);
     }
 
 #endif
