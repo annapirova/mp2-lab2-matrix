@@ -53,8 +53,17 @@ public:
   }
   friend ostream& operator<<(ostream &out, const TVector &v)
   {
-    for (int i = 0; i < v.Size; i++)
-      out << v.pVector[i] << ' ';
+      for (int i = 0; i < v.Size; i++) 
+      {
+          ValType k= v.pVector[i];
+          if (k < 1) k = 1;
+          while (k < 100000)
+          {   
+              k *= 10;
+              out << ' ';
+          }
+          out << v.pVector[i] << ' ';
+      }
     return out;
   }
 };
@@ -219,14 +228,17 @@ public:
   // ввод / вывод
   friend istream& operator>>(istream &in, TMatrix &mt)
   {
-    for (int i = 0; i < mt.Size; i++)
-      in >> mt.pVector[i];
+      for (int i = 0; i < mt.Size; i++)
+          in >> mt.pVector[i];
     return in;
   }
   friend ostream & operator<<( ostream &out, const TMatrix &mt)
   {
-    for (int i = 0; i < mt.Size; i++)
-      out << mt.pVector[i] << endl;
+      for (int i = 0; i < mt.Size; i++) {
+          for (int j = 0; j < i; j++)
+              out << ' ' << ' ' << ' ' << ' ' << ' ' << ' ' << ' ';
+          out << mt.pVector[i] << endl;
+      }
     return out;
   }
 };
