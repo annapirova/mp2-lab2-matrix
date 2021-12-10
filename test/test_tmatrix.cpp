@@ -60,6 +60,12 @@ TEST(TMatrix, throws_when_set_element_with_negative_index)
   ASSERT_ANY_THROW(m1[0][-5]);
 }
 
+TEST(TMatrix, can_assign_matrix_to_itself)
+{
+  TMatrix<int> m1(10);
+	ASSERT_NO_THROW(m1 = m1);
+}
+
 TEST(TMatrix, throws_when_set_element_with_too_large_index)
 {
   TMatrix<int> m1(10);
