@@ -39,10 +39,11 @@ TEST(TVector, copied_vector_is_equal_to_source_one)
 
 TEST(TVector, copied_vector_has_its_own_memory)
 {
-  TVector<int> v1(5);
-	v1[1] = 2;
+	TVector<int> v1(5);
+	for (int i = 0; i < v1.GetSize(); i++)
+		v1[i] = i;
 	TVector<int> v2(v1);
-	EXPECT_EQ(&(v1), &(v2));
+	EXPECT_EQ(v1, v2);
 }
 
 TEST(TVector, can_get_size)
@@ -212,16 +213,11 @@ TEST(TVector, cant_subtract_vectors_with_not_equal_size)
 
 TEST(TVector, can_multiply_vectors_with_equal_size)
 {
-  TVector<int> v1(5);
-	TVector<int> v2(5);
-	TVector<int> v3(5);
-	for (int i = 0; i < v1.GetSize(); i++)
-	{
-		v1[i] = 3;
-		v2[i] = 2;
-		v3[i] = 6;
-	}
-	EXPECT_EQ(v3, v1 * v2);
+	TVector<int> v1(2);
+	TVector<int> v2(2);
+	v1[0] = v1[1] = 1;
+	v2[0] = v2[1] = 2;
+	ASSERT_NO_THROW(v1 * v2);
 }
 
 TEST(TVector, cant_multiply_vectors_with_not_equal_size)
