@@ -40,10 +40,9 @@ TEST(TVector, copied_vector_is_equal_to_source_one)
 TEST(TVector, copied_vector_has_its_own_memory)
 {
 	TVector<int> v1(5);
-	for (int i = 0; i < v1.GetSize(); i++)
-		v1[i] = i;
 	TVector<int> v2(v1);
-	EXPECT_EQ(v1, v2);
+	v1[0] = 1;
+	EXPECT_NE(v1, v2);
 }
 
 TEST(TVector, can_get_size)
