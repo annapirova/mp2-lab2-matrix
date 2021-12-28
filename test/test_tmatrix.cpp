@@ -2,27 +2,6 @@
 
 #include <gtest.h>
 
-class TestMatrix : public ::testing::Test
-{
-protected:
-	TMatrix<int> m1;
-	TMatrix<int> m2;
-public:
-	TestMatrix() : m1(3), m2(3)
-	{
-		m1[0][0] = 1;
-		m1[0][1] = 2;
-		m1[0][2] = 3;
-		m1[1][1] = 4;
-		m1[1][2] = 5;
-		m1[2][2] = 6;
-		for (int i = 0; i < m1.GetSize(); i++)
-			for (int j = i; j < m1.GetSize(); j++)
-				m2[i][j] = 4;
-	}
-	~TestMatrix() {}
-};
-
 TEST(TMatrix, can_create_matrix_with_positive_length)
 {
   ASSERT_NO_THROW(TMatrix<int> m(5));
@@ -45,117 +24,103 @@ TEST(TMatrix, can_create_copied_matrix)
   ASSERT_NO_THROW(TMatrix<int> m1(m));
 }
 
-TEST_F(TestMatrix, copied_matrix_is_equal_to_source_one)
+TEST(TestMatrix, copied_matrix_is_equal_to_source_one)
 {
-	TMatrix<int> m0(m1);
-	EXPECT_EQ(m1, m0);
+	TMatrix<int> a(10);
+	TMatrix<int> b = a;
+	EXPECT_EQ(a, b);
 }
 
-TEST_F(TestMatrix, copied_matrix_has_its_own_memory)
+TEST(TestMatrix, copied_matrix_has_its_own_memory)
 {
-	TMatrix<int> m0(m1);
-	EXPECT_EQ(m1, m0);
-	EXPECT_NE(&(m1), &(m0));
+	TMatrix<int> a(10);
+	TMatrix<int> b = a;
+	a[3][4] = 2;
+	EXPECT_NE(a, b);
 }
 
-TEST_F(TestMatrix, can_get_size)
+TEST(TestMatrix, can_get_size)
 {
-	EXPECT_EQ(3, m1.GetSize());
+	TMatrix<int> v(5);
+	EXPECT_EQ(5, v.GetSize());
 }
 
-TEST_F(TestMatrix, can_set_and_get_element)
+TEST(TestMatrix, can_set_and_get_element)
 {
-	m1[0][1] = 56;
-	EXPECT_EQ(56, m1[0][1]);
+	TMatrix<int> v(2);
+	v[0][0] = 2;
+	EXPECT_EQ(2, v[0][0]);
 }
 
-TEST_F(TestMatrix, throws_when_set_element_with_negative_index)
+TEST(TestMatrix, throws_when_set_element_with_negative_index)
 {
-	ASSERT_ANY_THROW(m1[0][-1] = 5);
+	TMatrix<int> a(5);
+	ASSERT_ANY_THROW(a[-2][-2] = 2);
 }
 
-TEST_F(TestMatrix, throws_when_set_element_with_too_large_index)
+TEST(TestMatrix, throws_when_set_element_with_too_large_index)
 {
-	ASSERT_ANY_THROW(m1[0][9] = 5);
+	TMatrix<int> a(5);
+	ASSERT_ANY_THROW(a[7][9] = 2);
 }
 
-TEST_F(TestMatrix, can_assign_matrix_to_itself)
+TEST(TestMatrix, can_assign_matrix_to_itself)
 {
-	ASSERT_NO_THROW(m1 = m1);
+	TMatrix<int> a(5);
+	TMatrix<int> b(5);
+	b[0][0] = 2;
+	a[0][0] = 2;
+	a = a;
+	EXPECT_EQ(a, b);
 }
 
-TEST_F(TestMatrix, can_assign_matrices_of_equal_size)
+TEST(TestMatrix, can_assign_matrices_of_equal_size)
 {
-	ASSERT_NO_THROW(m1 = m2);
+	TMatrix<int> a(5);
+	TMatrix<int> b(5);
+	a[1][1] = 2;
+	b = a;
+	EXPECT_EQ(a, b);
 }
 
-TEST_F(TestMatrix, assign_operator_change_matrix_size)
+TEST(TestMatrix, assign_operator_change_matrix_size)
 {
-	TMatrix<int> m0(1);
-	m0 = m1;
-	EXPECT_EQ(3, m0.GetSize());
+	TMatrix<int> a(3);
+	TMatrix<int> b(7);
+	a = b;
+	EXPECT_EQ(a.GetSize(), 7);
 }
 
-TEST_F(TestMatrix, can_assign_matrices_of_different_size)
+TEST(TestMatrix, compare_matrix_with_itself_return_true)
 {
-	TMatrix<int> m0(1);
-	m0 = m1;
-	EXPECT_EQ(m0, m1);
+	TMatrix<int> a(5);
+	EXPECT_TRUE(a == a);
 }
 
-TEST_F(TestMatrix, compare_equal_matrices_return_true)
+TEST(TestMatrix, matrices_with_different_size_are_not_equal)
 {
-	TMatrix<int> m0(1);
-	m0 = m1;
-	EXPECT_EQ(1, m1 == m0);
+	TMatrix<int> a(4);
+	TMatrix<int> b(5);
+	EXPECT_TRUE(a != b);
 }
 
-TEST_F(TestMatrix, compare_matrix_with_itself_return_true)
+TEST(TestMatrix, can_add_matrices_with_equal_size)
 {
-	EXPECT_EQ(1, m1 == m1);
+	TMatrix<int> a(2);
+	a[0][0] = 1; a[0][1] = 1; a[1][1] = 1;
+	TMatrix<int> b(2);
+	b[0][0] = 2; b[0][1] = 2; b[1][1] = 2;
+	TMatrix<int> c(2);
+	c[0][0] = 3; c[0][1] = 3; c[1][1] = 3;
+
+	EXPECT_EQ(a + b, c);
 }
 
-TEST_F(TestMatrix, matrices_with_different_size_are_not_equal)
+TEST(TestMatrix, cant_add_matrices_with_not_equal_size)
 {
-	TMatrix<int> m0(1);
-	EXPECT_NE(m0, m1);
+	TVector<int> a(2);
+	TVector<int> b(3);
+	ASSERT_ANY_THROW(a = a + b;);
 }
 
-TEST_F(TestMatrix, can_add_matrices_with_equal_size)
-{
-	TMatrix<int> res(3);
-	res[0][0] = 1 + 4;
-	res[0][1] = 2 + 4;
-	res[0][2] = 3 + 4;
-	res[1][1] = 4 + 4;
-	res[1][2] = 5 + 4;
-	res[2][2] = 6 + 4;
-	EXPECT_EQ(res, m1 + m2);
-}
-
-TEST_F(TestMatrix, cant_add_matrices_with_not_equal_size)
-{
-	TMatrix<int> m0(1);
-	m0[0][0] = 4;
-	ASSERT_ANY_THROW(m1 + m0);
-}
-
-TEST_F(TestMatrix, can_subtract_matrices_with_equal_size)
-{
-	TMatrix<int> res(3);
-	res[0][0] = 1 - 4;
-	res[0][1] = 2 - 4;
-	res[0][2] = 3 - 4;
-	res[1][1] = 4 - 4;
-	res[1][2] = 5 - 4;
-	res[2][2] = 6 - 4;
-	EXPECT_EQ(res, m1 - m2);
-}
-
-TEST_F(TestMatrix, cant_subtract_matrixes_with_not_equal_size)
-{
-	TMatrix<int> m0(1);
-	m0[0][0] = 4;
-	ASSERT_ANY_THROW(m1 - m0);
-}
 
