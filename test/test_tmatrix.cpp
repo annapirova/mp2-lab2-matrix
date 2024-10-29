@@ -26,37 +26,53 @@ TEST(TDynamicMatrix, can_create_copied_matrix)
 
 TEST(TDynamicMatrix, copied_matrix_is_equal_to_source_one)
 {
-  ADD_FAILURE();
+	TDynamicMatrix<int> m1(5);
+	m1[3][3] = 7;
+	m1[1][2] = 15;
+	TDynamicMatrix<int> m2(m1);
+	ASSERT_EQ(m1, m2);
 }
 
 TEST(TDynamicMatrix, copied_matrix_has_its_own_memory)
 {
-  ADD_FAILURE();
+	TDynamicMatrix<int> m1(5);
+	m1[3][3] = 7;
+	m1[1][2] = 15;
+	TDynamicMatrix<int> m2(m1);
+	m2[4][4] = 4;
+	EXPECT_TRUE(!(m1 == m2));
 }
 
 TEST(TDynamicMatrix, can_get_size)
 {
-  ADD_FAILURE();
+	TDynamicMatrix<int> m(4);
+
+	EXPECT_EQ(4, m.size());
 }
 
 TEST(TDynamicMatrix, can_set_and_get_element)
 {
-  ADD_FAILURE();
+	TDynamicMatrix<int> m(3);
+	m[1][2] = 5;
+	ASSERT_EQ(m[1][2], 5);
 }
 
 TEST(TDynamicMatrix, throws_when_set_element_with_negative_index)
 {
-  ADD_FAILURE();
+	TDynamicMatrix<int> m(5);
+	ASSERT_ANY_THROW(m[-1]);
 }
 
 TEST(TDynamicMatrix, throws_when_set_element_with_too_large_index)
 {
-  ADD_FAILURE();
+	TDynamicMatrix<int> m(5);
+	ASSERT_ANY_THROW(m[5]);
 }
 
 TEST(TDynamicMatrix, can_assign_matrix_to_itself)
 {
-  ADD_FAILURE();
+	TDynamicMatrix<int> m(5);
+	ASSERT_NO_THROW(m = m);
 }
 
 TEST(TDynamicMatrix, can_assign_matrices_of_equal_size)
