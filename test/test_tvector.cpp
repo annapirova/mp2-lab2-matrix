@@ -30,7 +30,7 @@ TEST(TDynamicVector, copied_vector_is_equal_to_source_one)
 	v1[1] = 1;
 	v1[3] = 3; 
 	TDynamicVector<int> v2(v1);
-	ASSERT_EQ(v1, v2);
+	EXPECT_EQ(v1, v2);
 }
 
 TEST(TDynamicVector, copied_vector_has_its_own_memory)
@@ -97,7 +97,7 @@ TEST(TDynamicVector, can_assign_vectors_of_different_size)
 	TDynamicVector<int> v1(size1), v2(size2);
 	v2[5] = 5;
 	v1 = v2;
-	ASSERT_EQ(v1[5], 5);
+	EXPECT_EQ(v1[5], 5);
 }
 
 TEST(TDynamicVector, compare_equal_vectors_return_true)
@@ -106,7 +106,7 @@ TEST(TDynamicVector, compare_equal_vectors_return_true)
 	TDynamicVector<int> v1(size), v2(size);
 	v1[3] = 10;
 	v2[3] = 10;
-	ASSERT_EQ(v1, v2);
+	EXPECT_EQ(v1, v2);
 }
 
 TEST(TDynamicVector, compare_vector_with_itself_return_true)
@@ -114,14 +114,14 @@ TEST(TDynamicVector, compare_vector_with_itself_return_true)
 	size_t size = 5;
 	TDynamicVector<int> v(size);
 	v[3] = 3;
-	ASSERT_EQ(v, v);
+	EXPECT_EQ(v, v);
 }
 
 TEST(TDynamicVector, vectors_with_different_size_are_not_equal)
 {
 	size_t size1 = 5, size2 = 10;
 	TDynamicVector<int> v1(size1), v2(size2);
-	ASSERT_NE(v1, v2);
+	EXPECT_NE(v1, v2);
 }
 
 TEST(TDynamicVector, can_add_scalar_to_vector)
@@ -136,7 +136,7 @@ TEST(TDynamicVector, can_add_scalar_to_vector)
 	v2[1] = 7;
 	v2[2] = 8;
 	// 6 7 8
-	ASSERT_EQ(v1 + 5, v2);
+	EXPECT_EQ(v1 + 5, v2);
 }
 
 TEST(TDynamicVector, can_subtract_scalar_from_vector)
@@ -151,7 +151,7 @@ TEST(TDynamicVector, can_subtract_scalar_from_vector)
 	v2[1] = -3;
 	v2[2] = -2; 
 	// -4 -3 -2
-	ASSERT_EQ(v1 - 5, v2);
+	EXPECT_EQ(v1 - 5, v2);
 }
 
 TEST(TDynamicVector, can_multiply_scalar_by_vector)
@@ -166,7 +166,7 @@ TEST(TDynamicVector, can_multiply_scalar_by_vector)
 	v2[1] = 6;
 	v2[2] = 9;
 	// 3 6 9
-	ASSERT_EQ(v1 * 3, v2);
+	EXPECT_EQ(v1 * 3, v2);
 }
 
 TEST(TDynamicVector, can_add_vectors_with_equal_size)
@@ -184,7 +184,7 @@ TEST(TDynamicVector, can_add_vectors_with_equal_size)
 	exp_v[1] = 2;
 	exp_v[2] = 8;
 	// 8 5 8
-	ASSERT_EQ(v1 + v2, exp_v);
+	EXPECT_EQ(v1 + v2, exp_v);
 }
 
 TEST(TDynamicVector, cant_add_vectors_with_not_equal_size)
@@ -208,7 +208,7 @@ TEST(TDynamicVector, can_subtract_vectors_with_equal_size)
 	exp_v[1] = 1;
 	exp_v[2] = -4;
 	// -5 1 -4
-	ASSERT_EQ(v1 - v2, exp_v);
+	EXPECT_EQ(v1 - v2, exp_v);
 }
 
 TEST(TDynamicVector, cant_subtract_vectors_with_not_equal_size)
@@ -229,7 +229,7 @@ TEST(TDynamicVector, can_multiply_vectors_with_equal_size)
 	v2[2] = 6;
 	// 5 0 6
 	exp_v[2] = 12;
-	ASSERT_EQ(v1 * v2, exp_v);
+	EXPECT_EQ(v1 * v2, exp_v);
 }
 
 TEST(TDynamicVector, cant_multiply_vectors_with_not_equal_size)
