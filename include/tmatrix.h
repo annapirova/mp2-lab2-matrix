@@ -56,8 +56,15 @@ public:
   {
       if (this == &v)
           return *this;
-      TDynamicVector tmp(v);
-      swap(*this, tmp);
+      if (sz != v.sz) 
+    {
+      T* p = new T[v.sz];
+      delete[] pMem;
+      sz = v.sz;
+      pMem = p;
+      //return *this;
+    }
+    std::copy(v.pMem, v.pMem + sz, pMem);
       return *this;
   }
   TDynamicVector& operator=(TDynamicVector&& v) noexcept
