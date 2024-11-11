@@ -228,8 +228,8 @@ TEST(TDynamicVector, can_multiply_vectors_with_equal_size)
 	v2[0] = 5;
 	v2[2] = 6;
 	// 5 0 6
-	T tmp = 12;
-	EXPECT_EQ(v1 * v2, exp_v);
+	int tmp = 12;
+	EXPECT_EQ(v1 * v2, tmp);
 }
 
 TEST(TDynamicVector, cant_multiply_vectors_with_not_equal_size)
