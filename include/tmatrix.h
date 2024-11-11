@@ -163,16 +163,16 @@ public:
         tmp.pMem[i] = pMem[i] - v.pMem[i];
       return tmp;
   }
- T operator*(const TDynamicVector& v) 
-  {
-    if (sz != v.sz) throw invalid_argument("Sizes should be equal");
-    T tmp;
+ T operator*(const TDynamicVector& v)
+{
+    if (sz != v.size()) throw invalid_argument("Sizes should be equal");
+    T tmp{};
     for (size_t i = 0; i < sz; i++)
-      {
-        tmp += (pMem[i] * v.pMem[i]);
-      }
+    {
+        tmp = tmp + (pMem[i] * v.pMem[i]);
+    }
     return tmp;
-  }
+}
 
   friend void swap(TDynamicVector& lhs, TDynamicVector& rhs) noexcept
   {
