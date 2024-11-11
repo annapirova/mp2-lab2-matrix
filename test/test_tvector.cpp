@@ -221,14 +221,14 @@ TEST(TDynamicVector, cant_subtract_vectors_with_not_equal_size)
 TEST(TDynamicVector, can_multiply_vectors_with_equal_size)
 {
 	size_t size = 3;
-	TDynamicVector<int> v1(size), v2(size), exp_v(size);
+	TDynamicVector<int> v1(size), v2(size);
 	v1[1] = 1;
 	v1[2] = 2;
-	// 0 1 3
+	// 0 1 2
 	v2[0] = 5;
 	v2[2] = 6;
 	// 5 0 6
-	exp_v[2] = 12;
+	T tmp = 12;
 	EXPECT_EQ(v1 * v2, exp_v);
 }
 
