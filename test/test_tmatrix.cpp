@@ -1,111 +1,164 @@
-#include "utmatrix.h"
+﻿#include "utmatrix.h" // Подключаем заголовочный файл с определением TDynamicMatrix
 
-#include <gtest.h>
+#include <gtest.h> // Подключаем Google Test для написания тестов
 
-TEST(TMatrix, can_create_matrix_with_positive_length)
-{
-  ASSERT_NO_THROW(TMatrix<int> m(5));
+// Функция для создания матрицы заданного размера
+TDynamicMatrix<int> createMatrix(size_t size) {
+    return TDynamicMatrix<int>(size);
 }
 
-TEST(TMatrix, cant_create_too_large_matrix)
-{
-  ASSERT_ANY_THROW(TMatrix<int> m(MAX_MATRIX_SIZE + 1));
+// Функция для заполнения матрицы значениями по заданным индексам
+void fillMatrix(TDynamicMatrix<int>& m, const std::vector<std::pair<size_t, size_t>>& indices, int value) {
+    for (const auto& index : indices) {
+        m[index.first][index.second] = value; // Устанавливаем значение в указанные индексы
+    }
 }
 
-TEST(TMatrix, throws_when_create_matrix_with_negative_length)
-{
-  ASSERT_ANY_THROW(TMatrix<int> m(-5));
+// Тест на создание матрицы с положительной длиной
+TEST(TDynamicMatrix, can_create_matrix_with_positive_length) {
+    ASSERT_NO_THROW(createMatrix(5)); // Проверяем, что создание матрицы не вызывает исключений
 }
 
-TEST(TMatrix, can_create_copied_matrix)
-{
-  TMatrix<int> m(5);
-
-  ASSERT_NO_THROW(TMatrix<int> m1(m));
+// Тест на попытку создания слишком большой матрицы
+TEST(TDynamicMatrix, cant_create_too_large_matrix) {
+    ASSERT_ANY_THROW(createMatrix(MAX_MATRIX_SIZE + 1)); // Проверяем, что выбрасывается исключение
 }
 
-TEST(TMatrix, copied_matrix_is_equal_to_source_one)
-{
-  ADD_FAILURE();
+// Тест на попытку создания матрицы с отрицательной длиной
+TEST(TDynamicMatrix, throws_when_create_matrix_with_negative_length) {
+    ASSERT_ANY_THROW(createMatrix(-5)); // Проверяем, что выбрасывается исключение
 }
 
-TEST(TMatrix, copied_matrix_has_its_own_memory)
-{
-  ADD_FAILURE();
+// Тест на создание копии матрицы
+TEST(TDynamicMatrix, can_create_copied_matrix) {
+    TDynamicMatrix<int> m = createMatrix(5);
+    ASSERT_NO_THROW(TDynamicMatrix<int> m1(m)); // Проверяем, что создание копии не вызывает исключений
 }
 
-TEST(TMatrix, can_get_size)
-{
-  ADD_FAILURE();
+// Тест на равенство исходной матрицы и ее копии
+TEST(TDynamicMatrix, copied_matrix_is_equal_to_source_one) {
+    TDynamicMatrix<int> m1 = createMatrix(5);
+    fillMatrix(m1, { {0, 0}, {1, 1}, {2, 2}, {3, 3}, {4, 4} }, 0); // Заполняем значения
+    TDynamicMatrix<int> m2(m1); // Создаем копию
+    EXPECT_EQ(m1, m2); // Проверяем, что матрицы равны
 }
 
-TEST(TMatrix, can_set_and_get_element)
-{
-  ADD_FAILURE();
+// Тест на то, что копия матрицы имеет собственную память
+TEST(TDynamicMatrix, copied_matrix_has_its_own_memory) {
+    TDynamicMatrix<int> m1 = createMatrix(5);
+    fillMatrix(m1, { {0, 0}, {1, 1}, {2, 2}, {3, 3}, {4, 4} }, 0);
+    TDynamicMatrix<int> m2(m1);
+    m2[2][3] = 23; // Изменяем значение в копии
+    EXPECT_TRUE(!(m1 == m2)); // Проверяем, что матрицы теперь не равны
 }
 
-TEST(TMatrix, throws_when_set_element_with_negative_index)
-{
-  ADD_FAILURE();
+// Тест на получение размера матрицы
+TEST(TDynamicMatrix, can_get_size) {
+    TDynamicMatrix<int> m = createMatrix(5);
+    EXPECT_EQ(5, m.size()); // Проверяем, что размер матрицы равен 5
 }
 
-TEST(TMatrix, throws_when_set_element_with_too_large_index)
-{
-  ADD_FAILURE();
+// Тест на установку и получение элемента матрицы
+TEST(TDynamicMatrix, can_set_and_get_element) {
+    TDynamicMatrix<int> m = createMatrix(3);
+    m[1][2] = 12; // Устанавливаем значение
+    EXPECT_EQ(m[1][2], 12); // Проверяем, что значение получено корректно
 }
 
-TEST(TMatrix, can_assign_matrix_to_itself)
-{
-  ADD_FAILURE();
+// Тест на попытку доступа к элементу с отрицательным индексом
+TEST(TDynamicMatrix, throws_when_set_element_with_negative_index) {
+    TDynamicMatrix<int> m = createMatrix(5);
+    ASSERT_ANY_THROW(m[-1]); // Проверяем, что выбрасывается исключение
 }
 
-TEST(TMatrix, can_assign_matrices_of_equal_size)
-{
-  ADD_FAILURE();
+// Тест на попытку доступа к элементу с слишком большим индексом
+TEST(TDynamicMatrix, throws_when_set_element_with_too_large_index) {
+    TDynamicMatrix<int> m = createMatrix(5);
+    ASSERT_ANY_THROW(m[5]); // Проверяем, что выбрасывается исключение
 }
 
-TEST(TMatrix, assign_operator_change_matrix_size)
-{
-  ADD_FAILURE();
+// Тест на присваивание матрицы самой себе
+TEST(TDynamicMatrix, can_assign_matrix_to_itself) {
+    TDynamicMatrix<int> m = createMatrix(5);
+    ASSERT_NO_THROW(m = m); // Проверяем, что присваивание не вызывает исключений
 }
 
-TEST(TMatrix, can_assign_matrices_of_different_size)
-{
-  ADD_FAILURE();
+// Тест на присваивание матриц одинакового размера
+TEST(TDynamicMatrix, can_assign_matrices_of_equal_size) {
+    size_t size = 5;
+    TDynamicMatrix<int> m1(size), m2(size);
+    m1[1][1] = 1; // Устанавливаем значение в первой матрице
+    m2 = m1; // Присваиваем
+    EXPECT_EQ(m2, m1); // Проверяем, что матрицы равны
 }
 
-TEST(TMatrix, compare_equal_matrices_return_true)
-{
-  ADD_FAILURE();
+// Тест на изменение размера матрицы при присваивании
+TEST(TDynamicMatrix, assign_operator_change_matrix_size) {
+    size_t size1 = 5, size2 = 10;
+    TDynamicMatrix<int> m1(size1), m2(size2);
+    m1 = m2; // Присваиваем
+    EXPECT_EQ(m1.size(), size2); // Проверяем, что размер изменился
 }
 
-TEST(TMatrix, compare_matrix_with_itself_return_true)
-{
-  ADD_FAILURE();
+// Тест на присваивание матриц разного размера
+TEST(TDynamicMatrix, can_assign_matrices_of_different_size) {
+    size_t size1 = 5, size2 = 10;
+    TDynamicMatrix<int> m1(size1), m2(size2);
+    m2[3][3] = 3; // Устанавливаем значение в второй матрице
+    m1 = m2; // Присваиваем
+    EXPECT_EQ(m1, m2); // Проверяем, что матрицы равны
 }
 
-TEST(TMatrix, matrices_with_different_size_are_not_equal)
-{
-  ADD_FAILURE();
+// Тест на сравнение равных матриц
+TEST(TDynamicMatrix, compare_equal_matrices_return_true) {
+    size_t size = 5;
+    TDynamicMatrix<int> m1(size), m2(size);
+    m2[3][3] = 3; // Устанавливаем значение в одной матрице
+    m1[3][3] = 3; // Устанавливаем такое же значение в другой
+    EXPECT_EQ(m1, m2); // Проверяем, что матрицы равны
 }
 
-TEST(TMatrix, can_add_matrices_with_equal_size)
-{
-  ADD_FAILURE();
+// Тест на сравнение матрицы с самой собой
+TEST(TDynamicMatrix, compare_matrix_with_itself_return_true) {
+    TDynamicMatrix<int> m = createMatrix(5);
+    EXPECT_TRUE(m == m); // Проверяем, что матрица равна самой себе
 }
 
-TEST(TMatrix, cant_add_matrices_with_not_equal_size)
-{
-  ADD_FAILURE();
+// Тест на неравенство матриц разного размера
+TEST(TDynamicMatrix, matrices_with_different_size_are_not_equal) {
+    size_t size1 = 5, size2 = 10;
+    TDynamicMatrix<int> m1(size1), m2(size2);
+    EXPECT_FALSE(m1 == m2); // Проверяем, что матрицы не равны
 }
 
-TEST(TMatrix, can_subtract_matrices_with_equal_size)
-{
-  ADD_FAILURE();
+// Тест на сложение матриц одинакового размера
+TEST(TDynamicMatrix, can_add_matrices_with_equal_size) {
+    size_t size = 3;
+    TDynamicMatrix<int> m1(size), m2(size), exp(size); // Создаем матрицы
+    m1[2][2] = 7; // Устанавливаем значение в первой матрице
+    m2[2][2] = 8; // Устанавливаем значение во второй матрице
+    exp[2][2] = 15; // Ожидаемое значение после сложения
+    EXPECT_EQ(m1 + m2, exp); // Проверяем, что сумма равна ожидаемому результату
 }
 
-TEST(TMatrix, cant_subtract_matrixes_with_not_equal_size)
-{
-  ADD_FAILURE();
+// Тест на сложение матриц разного размера
+TEST(TDynamicMatrix, cant_add_matrices_with_not_equal_size) {
+    TDynamicMatrix<int> m1(5), m2(10);
+    ASSERT_ANY_THROW(m1 + m2); // Проверяем, что выбрасывается исключение
 }
 
+// Тест на вычитание матриц одинакового размера
+TEST(TDynamicMatrix, can_subtract_matrices_with_equal_size) {
+    size_t size = 3;
+    TDynamicMatrix<int> m1(size), m2(size), exp(size);
+    m1[2][2] = 7; // Устанавливаем значение в первой матрице
+    m2[2][2] = 8; // Устанавливаем значение во второй матрице
+    exp[2][2] = -1; // Ожидаемое значение после вычитания
+    EXPECT_EQ(m1 - m2, exp); // Проверяем, что разность равна ожидаемому результату
+}
+
+// Тест на вычитание матриц разного размера
+TEST(TDynamicMatrix, cant_subtract_matrixes_with_not_equal_size) {
+    TDynamicMatrix<int> m1(5), m2(10);
+    ASSERT_ANY_THROW(m1 - m2); // Проверяем, что выбрасывается исключение
+}
