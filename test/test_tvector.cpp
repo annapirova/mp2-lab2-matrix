@@ -124,6 +124,7 @@ TEST(TDynamicVector, can_add_scalar_to_vector_elements_correctly) {
     v2[0] = 7;
     v2[1] = 8;
     v2[2] = 9;
+    v2[3] = 5;
     EXPECT_EQ(v1 + 5, v2); // Проверка, что v1 + 5 равно v2
 }
 
@@ -137,6 +138,7 @@ TEST(TDynamicVector, can_subtract_scalar_from_vector_elements_correctly) {
     v2[0] = 1;
     v2[1] = 2;
     v2[2] = 3;
+    v2[3] = -5;
     EXPECT_EQ(v1 - 5, v2); // Проверка, что v1 - 5 равно v2
 }
 
@@ -162,8 +164,10 @@ TEST(TDynamicVector, can_add_vectors_of_same_size_correctly) {
     v1[2] = 4;
     v2[0] = 6;
     v2[1] = 5;
+    v2[2] = 4;
     expected_v[0] = 8;
     expected_v[1] = 8;
+    expected_v[2] = 8;
     EXPECT_EQ(v1 + v2, expected_v); // Проверка, что сумма v1 и v2 равна expected_v
 }
 

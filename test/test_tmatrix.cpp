@@ -1,6 +1,6 @@
-﻿#include "utmatrix.h" // Подключаем заголовочный файл с определением TDynamicMatrix
+﻿#include "utmatrix.h" 
 
-#include <gtest.h> // Подключаем Google Test для написания тестов
+#include <gtest.h> 
 
 // Функция для создания матрицы заданного размера
 TDynamicMatrix<int> createMatrix(size_t size) {
@@ -135,30 +135,30 @@ TEST(TDynamicMatrix, matrices_with_different_size_are_not_equal) {
 TEST(TDynamicMatrix, can_add_matrices_with_equal_size) {
     size_t size = 3;
     TDynamicMatrix<int> m1(size), m2(size), exp(size); // Создаем матрицы
-    m1[2][2] = 7; // Устанавливаем значение в первой матрице
-    m2[2][2] = 8; // Устанавливаем значение во второй матрице
-    exp[2][2] = 15; // Ожидаемое значение после сложения
-    EXPECT_EQ(m1 + m2, exp); // Проверяем, что сумма равна ожидаемому результату
+    m1[2][2] = 7;
+    m2[2][2] = 8; 
+    exp[2][2] = 15; 
+    EXPECT_EQ(m1 + m2, exp);
 }
 
 // Тест на сложение матриц разного размера
 TEST(TDynamicMatrix, cant_add_matrices_with_not_equal_size) {
     TDynamicMatrix<int> m1(5), m2(10);
-    ASSERT_ANY_THROW(m1 + m2); // Проверяем, что выбрасывается исключение
+    ASSERT_ANY_THROW(m1 + m2);
 }
 
 // Тест на вычитание матриц одинакового размера
 TEST(TDynamicMatrix, can_subtract_matrices_with_equal_size) {
     size_t size = 3;
     TDynamicMatrix<int> m1(size), m2(size), exp(size);
-    m1[2][2] = 7; // Устанавливаем значение в первой матрице
-    m2[2][2] = 8; // Устанавливаем значение во второй матрице
-    exp[2][2] = -1; // Ожидаемое значение после вычитания
-    EXPECT_EQ(m1 - m2, exp); // Проверяем, что разность равна ожидаемому результату
+    m1[2][2] = 7; 
+    m2[2][2] = 8; 
+    exp[2][2] = -1; 
+    EXPECT_EQ(m1 - m2, exp); 
 }
 
-// Тест на вычитание матриц разного размера
+
 TEST(TDynamicMatrix, cant_subtract_matrixes_with_not_equal_size) {
     TDynamicMatrix<int> m1(5), m2(10);
-    ASSERT_ANY_THROW(m1 - m2); // Проверяем, что выбрасывается исключение
+    ASSERT_ANY_THROW(m1 - m2); 
 }

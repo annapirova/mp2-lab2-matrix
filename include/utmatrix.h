@@ -1,4 +1,4 @@
-﻿// ННГУ, ИИТММ, Курс "Алгоритмы и структуры данных"
+﻿﻿// ННГУ, ИИТММ, Курс "Алгоритмы и структуры данных"
 //
 // Copyright (c) Сысоев А.В.
 //
@@ -287,7 +287,7 @@ public:
         }
         for (size_t i = 0; i < sz; i++)
         {
-            pMem[i] = TDynamicVector<T>(sz);
+            pMem[i] = TDynamicVector<T>(sz); // инициализация каждого вектора
         }
     }
 
@@ -299,145 +299,104 @@ public:
     bool operator==(const TDynamicMatrix& m) const noexcept
     {
         if (sz != m.sz)
-        {
             return false;
-        }
-        else
-        {
-            for (size_t i = 0; i < sz; i++)
-            {
-                if (pMem[i] != m.pMem[i])
-                {
-                    return false;
-                }
-            }
-        }
+
+        for (size_t i = 0; i < sz; i++)
+            if (pMem[i] != m.pMem[i])
+                return false;
 
         return true;
     }
 
     bool operator!=(const TDynamicMatrix& m) const noexcept
     {
-        if (sz != m.sz)
-        {
-            return true;
-        }
-        else
-        {
-            for (size_t i = 0; i < sz; i++)
-            {
-                if (pMem[i] != m.pMem[i])
-                {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+        return !(*this == m);
     }
-
 
     // матрично-скалярные операции
     TDynamicMatrix operator*(const T& val)
     {
-        TDynamicMatrix<T> m1(sz);
-
+        TDynamicMatrix<T> result(sz);
         for (size_t i = 0; i < sz; i++)
         {
-            m1[i] = pMem[i] * val;
+            result[i] = pMem[i] * val; //  векторное умножение
         }
-
-        return m1;
+        return result;
     }
 
     // матрично-векторные операции
     TDynamicVector<T> operator*(const TDynamicVector<T>& v)
     {
-        if (sz != v.sz)
-        {
+        if (sz != v.size())
             throw std::out_of_range("cant mult different sizes");
-        }
 
-        TDynamicVector<T> mul(sz);
-
+        TDynamicVector<T> result(sz);
         for (size_t i = 0; i < sz; i++)
         {
-            mul[i] = pMem[i] * v;
+            result[i] = pMem[i] * v; //  векторное умножение
         }
-
-        return mul;
+        return result;
     }
 
     // матрично-матричные операции
     TDynamicMatrix operator+(const TDynamicMatrix& m)
     {
         if (sz != m.sz)
-        {
             throw std::out_of_range("cant sum matrices of different sizes");
-        }
 
-
-        TDynamicMatrix<T> sum(sz);
+        TDynamicMatrix<T> result(sz);
         for (size_t i = 0; i < sz; i++)
         {
-            sum[i] = pMem[i] + m.pMem[i];
+            result[i] = pMem[i] + m.pMem[i]; //  векторное сложение
         }
-
-        return sum;
+        return result;
     }
+
     TDynamicMatrix operator-(const TDynamicMatrix& m)
     {
         if (sz != m.sz)
-        {
             throw std::out_of_range("cant subtract matrices of different sizes");
-        }
 
-
-        TDynamicMatrix<T> res(sz);
+        TDynamicMatrix<T> result(sz);
         for (size_t i = 0; i < sz; i++)
         {
-            res[i] = pMem[i] - m.pMem[i];
+            result[i] = pMem[i] - m.pMem[i]; //  векторное вычитание
         }
-
-        return res;
+        return result;
     }
+
     TDynamicMatrix operator*(const TDynamicMatrix& m)
     {
         if (sz != m.sz)
-        {
             throw std::out_of_range("cant mult matrices of different sizes");
-        }
 
-
-        TDynamicMatrix<T> mul(sz);
+        TDynamicMatrix<T> result(sz);
         for (size_t i = 0; i < sz; i++)
         {
             for (size_t j = 0; j < sz; j++)
             {
-                mul[i][j] = T();
+                result[i][j] = T(); // инициализация
                 for (size_t k = 0; k < sz; k++)
                 {
-                    mul[i][j] += (*this)[i][k] * m[k][j];
+                    result[i][j] += pMem[i][k] * m.pMem[k][j]; // векторное умножение
                 }
             }
         }
-
-        return mul;
+        return result;
     }
 
     // ввод/вывод
-    friend istream& operator>>(istream& istr, TDynamicMatrix& v)
+    friend istream& operator>>(istream& istr, TDynamicMatrix& m)
     {
-        for (size_t i = 0; i < v.sz; i++)
-            istr >> v.pMem[i]; // требуется оператор>> для типа T
+        for (size_t i = 0; i < m.sz; i++)
+            istr >> m.pMem[i]; // требуется оператор>> для типа T
         return istr;
     }
-    friend ostream& operator<<(ostream& ostr, const TDynamicMatrix& v)
+
+    friend ostream& operator<<(ostream& ostr, const TDynamicMatrix& m)
     {
-        for (size_t i = 0; i < v.sz; i++)
-            ostr << v.pMem[i] << ' '; // требуется оператор<< для типа T
+        for (size_t i = 0; i < m.sz; i++)
+            ostr << m.pMem[i] << '\n'; // выводим каждую строку
         return ostr;
     }
 };
-
-#endif
