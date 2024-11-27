@@ -1,0 +1,2 @@
+/c/MinGW/mingw64/bin/ar.exe qc libgtest.a "CMakeFiles/gtest.dir/gtest-all.cc.o"
+/c/MinGW/mingw64/bin/ranlib.exe libgtest.a
