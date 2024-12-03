@@ -96,6 +96,10 @@ public:
   {
     if (ind > -1 && ind < sz)
     {
+      if (ind > MAX_VECTOR_SIZE)
+      {
+        throw "Vector index is too big";
+      }
       return pMem[ind];
     }
     else{throw out_of_range("Index must be in 0 - (size - 1) range");}
@@ -112,6 +116,10 @@ public:
   // сравнение
   bool operator==(const TDynamicVector& v) const noexcept
   {
+    if (v == *this)
+    {
+      return true;
+    }
     if (v.sz == sz)
     {
       for (int i = 0;i<sz;i++)
@@ -127,6 +135,10 @@ public:
   }
   bool operator!=(const TDynamicVector& v) const noexcept
   {
+    if (v == *this)
+    {
+      return false;
+    }
     if (v.sz == sz)
     {
       for (int i = 0;i<sz;i++)
@@ -248,10 +260,13 @@ public:
   }
 
   using TDynamicVector<TDynamicVector<T>>::operator[];
+  size_t size() const noexcept { return sz; }
 
   // сравнение
   bool operator==(const TDynamicMatrix& m) const noexcept
   {
+    if (m == *this)
+    {return true;}
     if (m.sz == sz)
     {
       for (int i = 0;i<sz;i++)
@@ -268,6 +283,8 @@ public:
 
   bool operator!=(const TDynamicMatrix& m) const noexcept
   {
+    if (m == *this)
+    {return false;}
     if (m.sz == sz)
     {
       for (int i = 0;i<sz;i++)
@@ -303,10 +320,7 @@ public:
     TDynamicVector<T> res(sz);
     for (int p = 0; p < sz; p++)
     {
-      for (int j = 0; j < sz; j++)
-      {
-        res.pMem[p] = v.pMem[p] * pMem[j];
-      }
+      res.pMem[p] = v.pMem * pMem[p];
     }
     return res;
   }
