@@ -27,11 +27,13 @@ public:
   {
     if (sz == 0)
       throw out_of_range("Vector size should be greater than zero");
+    if (sz > MAX_VECTOR_SIZE)
+      throw out_of_range("Vector size is way too big");
     pMem = new T[sz]();// {}; // У типа T д.б. констуктор по умолчанию
   }
   TDynamicVector(T* arr, size_t s) : sz(s)
   {
-    assert(arr != nullptr && "TDynamicVector ctor requires non-nullptr arg");
+    assert(arr != nullptr && "TDynamicVector requires non-nullptr arg");
     pMem = new T[sz];
     std::copy(arr, arr + sz, pMem);
   }
@@ -42,12 +44,16 @@ public:
     for (int i = 0;i < sz; i++)
     {pMem[i] = v.pMem[i];}
   }
+
+  
   TDynamicVector(TDynamicVector&& v) noexcept
   {
-    sz = v.sz;
-    pMem = new T[sz];
-    for (int i = 0;i < sz; i++)
-    {pMem[i] = v.pMem[i];}
+    pMem = nullptr;
+    swap(*this, v);
+    // sz = v.sz;
+    // pMem = new T[sz];
+    // for (int i = 0;i < sz; i++)
+    // {pMem[i] = v.pMem[i];}
   }
   ~TDynamicVector() //vector deletion
   {
@@ -98,7 +104,7 @@ public:
     {
       if (ind > MAX_VECTOR_SIZE)
       {
-        throw "Vector index is too big";
+        throw 2;
       }
       return pMem[ind];
     }
@@ -116,10 +122,6 @@ public:
   // сравнение
   bool operator==(const TDynamicVector& v) const noexcept
   {
-    if (v == *this)
-    {
-      return true;
-    }
     if (v.sz == sz)
     {
       for (int i = 0;i<sz;i++)
@@ -135,10 +137,6 @@ public:
   }
   bool operator!=(const TDynamicVector& v) const noexcept
   {
-    if (v == *this)
-    {
-      return false;
-    }
     if (v.sz == sz)
     {
       for (int i = 0;i<sz;i++)
@@ -209,14 +207,14 @@ public:
     }
     return res;
   }
-  T operator*(const TDynamicVector& v) noexcept(noexcept(T()))
+  T operator*(const TDynamicVector& v) //noexcept(noexcept(T()))
   {
-    T res = 0;
     if (v.sz != sz)
     {
       throw "We cannot multiply vectors with different sizes";
     }
-    for (int p = 0; p < sz; p++)
+    T res = v.pMem[0]*pMem[0];
+    for (int p = 1; p < sz; p++)
     {
       res = res + (v.pMem[p]*pMem[p]);
     }
@@ -255,8 +253,25 @@ class TDynamicMatrix : private TDynamicVector<TDynamicVector<T>>
 public:
   TDynamicMatrix(size_t s = 1) : TDynamicVector<TDynamicVector<T>>(s)
   {
+    if (sz < 0 || sz > MAX_MATRIX_SIZE)
+    {
+      throw out_of_range("You should know the ranges");
+    }
     for (size_t i = 0; i < sz; i++)
+    {
       pMem[i] = TDynamicVector<T>(sz);
+    }
+  }
+  TDynamicMatrix(const TDynamicMatrix& m)
+  {
+    sz = m.sz;
+    for (int i = 0;i < sz; i++)
+    {pMem[i] = m.pMem[i];}
+  }
+  
+   ~TDynamicMatrix()
+  {
+    delete pMem;
   }
 
   using TDynamicVector<TDynamicVector<T>>::operator[];
@@ -265,8 +280,6 @@ public:
   // сравнение
   bool operator==(const TDynamicMatrix& m) const noexcept
   {
-    if (m == *this)
-    {return true;}
     if (m.sz == sz)
     {
       for (int i = 0;i<sz;i++)
@@ -283,8 +296,6 @@ public:
 
   bool operator!=(const TDynamicMatrix& m) const noexcept
   {
-    if (m == *this)
-    {return false;}
     if (m.sz == sz)
     {
       for (int i = 0;i<sz;i++)
@@ -313,14 +324,14 @@ public:
   // матрично-векторные операции
   TDynamicVector<T> operator*(const TDynamicVector<T>& v)
   {
-    if (v.sz != sz)
+    if (v.size() != sz)
     {
       throw "We cannot multiply quadratic matrix and vector with different sizes";
     }
     TDynamicVector<T> res(sz);
     for (int p = 0; p < sz; p++)
     {
-      res.pMem[p] = v.pMem * pMem[p];
+      res[p] = pMem[p] * v;
     }
     return res;
   }

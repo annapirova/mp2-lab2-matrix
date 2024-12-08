@@ -1,6 +1,8 @@
 #include "../include/tmatrix.h"
 
-#include <gtest.h>
+#include "../gtest/gtest.h"
+
+#include <iostream>
 
 TEST(TDynamicVector, can_create_vector_with_positive_length)
 {
@@ -32,8 +34,13 @@ TEST(TDynamicVector, copied_vector_is_equal_to_source_one)
     v[i] = 0;
   }
   v[4] = 7;
-  TDynamicVector<int> vc(v);
-  ASSERT_EQ(v,vc);
+  TDynamicVector<int> v1(v);
+  if (v1 == v)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, copied_vector_has_its_own_memory)
@@ -45,7 +52,12 @@ TEST(TDynamicVector, copied_vector_has_its_own_memory)
   }
   TDynamicVector<int> vc(v);
   v[5] = 3;
-  ASSERT_NE(vc,v);
+  if (vc != v)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, can_get_size)
@@ -71,7 +83,7 @@ TEST(TDynamicVector, throws_when_set_element_with_negative_index)
 
 TEST(TDynamicVector, throws_when_set_element_with_too_large_index)
 {
-  TDynamicVector<int> v(100000009);
+  TDynamicVector<int> v(100000000);
   ASSERT_ANY_THROW(v.at(100000001));
 }
 
@@ -84,7 +96,12 @@ TEST(TDynamicVector, can_assign_vector_to_itself)
   }
   TDynamicVector<int> v2(v);
   v = v;
-  EXPECT_EQ(v2,v);
+  if (v2 == v)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, can_assign_vectors_of_equal_size)
@@ -98,7 +115,12 @@ TEST(TDynamicVector, can_assign_vectors_of_equal_size)
   }
   TDynamicVector<int> vr(v);
   v1 = v;
-  EXPECT_EQ(vr,v1);
+  if (v1 == v)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, assign_operator_change_vector_size)
@@ -178,7 +200,12 @@ TEST(TDynamicVector, can_add_scalar_to_vector)
     v[i] = 5;
     vr[i] = 7;
   }
-  EXPECT_EQ(vr,v+2);
+  if (vr == v+2)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, can_subtract_scalar_from_vector)
@@ -190,7 +217,12 @@ TEST(TDynamicVector, can_subtract_scalar_from_vector)
     v[i] = 5;
     vr[i] = 3;
   }
-  EXPECT_EQ(vr,v-2);
+  if (vr == v-2)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, can_multiply_scalar_by_vector)
@@ -202,7 +234,12 @@ TEST(TDynamicVector, can_multiply_scalar_by_vector)
     v[i] = 5;
     vr[i] = 10;
   }
-  EXPECT_EQ(vr,v*2);
+  if (vr == v*2)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, can_add_vectors_with_equal_size)
@@ -216,7 +253,12 @@ TEST(TDynamicVector, can_add_vectors_with_equal_size)
     v1[i] = 10;
     vr[i] = 15;
   }
-  EXPECT_EQ(vr,v+v1);
+  if (v1 + v == vr)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, cant_add_vectors_with_not_equal_size)
@@ -245,7 +287,12 @@ TEST(TDynamicVector, can_subtract_vectors_with_equal_size)
     v1[i] = 9;
     vr[i] = 1;
   }
-  EXPECT_EQ(vr,v-v1);
+  if (v - v1 == vr)
+  {
+    SUCCEED();
+  }
+  else
+  {ADD_FAILURE();}
 }
 
 TEST(TDynamicVector, cant_subtract_vectors_with_not_equal_size)
