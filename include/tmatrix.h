@@ -76,11 +76,8 @@ public:
   {
     if (v != *this)
     {
-      sz = v.sz;
-      delete pMem;
-      pMem = new T[sz];
-      for (int i = 0;i<sz;i++)
-      {pMem[i] = v.pMem[i];}
+      pMem = nullptr;
+      swap(*this, v);
       return *this;
     }
     return *this;
@@ -251,28 +248,23 @@ class TDynamicMatrix : private TDynamicVector<TDynamicVector<T>>
   using TDynamicVector<TDynamicVector<T>>::pMem;
   using TDynamicVector<TDynamicVector<T>>::sz;
 public:
-  TDynamicMatrix(size_t s = 1) : TDynamicVector<TDynamicVector<T>>(s)
+  TDynamicMatrix(size_t s = 1) : TDynamicVector<TDynamicVector<T>>(s) // wtf is this? It doesn't work properly
   {
     if (sz < 0 || sz > MAX_MATRIX_SIZE)
     {
       throw out_of_range("You should know the ranges");
     }
-    for (size_t i = 0; i < sz; i++)
+    for (int i = 0;i < sz;i++)
     {
       pMem[i] = TDynamicVector<T>(sz);
     }
   }
-  TDynamicMatrix(const TDynamicMatrix& m)
-  {
-    sz = m.sz;
-    for (int i = 0;i < sz; i++)
-    {pMem[i] = m.pMem[i];}
-  }
-  
-   ~TDynamicMatrix()
-  {
-    delete pMem;
-  }
+  // TDynamicMatrix(const TDynamicMatrix& m)
+  // {
+  //   sz = m.sz;
+  //   for (int i = 0;i < sz; i++)
+  //   {pMem[i] = m.pMem[i];}
+  // }
 
   using TDynamicVector<TDynamicVector<T>>::operator[];
   size_t size() const noexcept { return sz; }
