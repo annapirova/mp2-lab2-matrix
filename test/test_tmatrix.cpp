@@ -76,13 +76,13 @@ TEST(TDynamicMatrix, can_set_and_get_element)
 TEST(TDynamicMatrix, throws_when_set_element_with_negative_index)
 {
   TDynamicMatrix<int> m(9);
-  ASSERT_ANY_THROW(m[-1][5]);
+  ASSERT_ANY_THROW(m.at(-1,5));
 }
 
 TEST(TDynamicMatrix, throws_when_set_element_with_too_large_index)
 {
-  TDynamicMatrix<int> m(9);
-  ASSERT_ANY_THROW(m[111111][5]);
+  TDynamicMatrix<int> m(10000);
+  ASSERT_ANY_THROW(m.at(11111,5));
 }
 
 TEST(TDynamicMatrix, can_assign_matrix_to_itself)
@@ -128,21 +128,22 @@ TEST(TDynamicMatrix, assign_operator_change_matrix_size)
 
 TEST(TDynamicMatrix, can_assign_matrices_of_different_size)
 {
-  TDynamicMatrix<int> m(9);
-  TDynamicMatrix<int> m1(11);
-  TDynamicMatrix<int> mr(11);
-  for (int i = 0;i<9;i++)
+  TDynamicMatrix<int> m(3);
+  TDynamicMatrix<int> m1(4);
+  TDynamicMatrix<int> mr(4);
+  for (int i = 0;i<3;i++)
   {
-    for (int j = 0;j<9;j++)
+    for (int j = 0;j<3;j++)
     {
       m[i][j] = 0;
     }
   }
-  for (int i = 0;i<11;i++)
+  for (int i = 0;i<4;i++)
   {
-    for (int j = 0;j<11;j++)
+    for (int j = 0;j<4;j++)
     {
-      m[i][j] = 0;
+      m1[i][j] = 1;
+      mr[i][j] = 1;
     }
   }
   m = m1;
@@ -236,7 +237,7 @@ TEST(TDynamicMatrix, cant_add_matrices_with_not_equal_size)
   {
     for (int j = 0;j<11;j++)
     {
-      m[i][j] = 5;
+      m1[i][j] = 5;
     }
   }
   ASSERT_ANY_THROW(m+m1);
@@ -253,7 +254,7 @@ TEST(TDynamicMatrix, can_subtract_matrices_with_equal_size)
     {
       m[i][j] = 2;
       m1[i][j] = 99;
-      mr[i][j] = 97;
+      mr[i][j] = -97;
     }
   }
   EXPECT_EQ(mr,m1 - m);
@@ -274,7 +275,7 @@ TEST(TDynamicMatrix, cant_subtract_matrixes_with_not_equal_size)
   {
     for (int j = 0;j<11;j++)
     {
-      m[i][j] = 5;
+      m1[i][j] = 5;
     }
   }
   ASSERT_ANY_THROW(m-m1);
@@ -357,7 +358,7 @@ TEST(TDynamicMatrix, can_multiply_matrixes_with_equal_sizes)
 TEST(TDynamicMatrix, cant_multiply_matrixes_with_different_sizes)
 {
   TDynamicMatrix<int> m(9);
-  TDynamicMatrix<int> m2(9);
+  TDynamicMatrix<int> m2(13);
   for (int i = 0;i<9;i++)
   {
     for (int j = 0;j<9;j++)

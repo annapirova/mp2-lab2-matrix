@@ -25,7 +25,7 @@ protected:
 public:
   TDynamicVector(size_t size = 1) : sz(size)
   {
-    if (sz == 0)
+    if (sz < 0)
       throw out_of_range("Vector size should be greater than zero");
     if (sz > MAX_VECTOR_SIZE)
       throw out_of_range("Vector size is way too big");
@@ -57,14 +57,14 @@ public:
   }
   ~TDynamicVector() //vector deletion
   {
-    delete pMem;
+    delete [] pMem;
   }
   TDynamicVector& operator=(const TDynamicVector& v)
   {
     if (v != *this)
     {
       sz = v.sz;
-      delete pMem;
+      delete [] pMem;
       pMem = new T[sz];
       for (int i = 0;i<sz;i++)
       {pMem[i] = v.pMem[i];}
@@ -268,7 +268,18 @@ public:
 
   using TDynamicVector<TDynamicVector<T>>::operator[];
   size_t size() const noexcept { return sz; }
-
+  T& at(size_t ind, size_t ind1)
+  {
+    if ((ind > -1 || ind1 > -1) && (ind < sz || ind1 < sz))
+    {
+      if (ind > MAX_MATRIX_SIZE || ind1 > MAX_MATRIX_SIZE)
+      {
+        throw 2;
+      }
+      return pMem[ind][ind1];
+    }
+    else{throw out_of_range("Indexes must be in 0 - (size - 1) range");}
+  }
   // сравнение
   bool operator==(const TDynamicMatrix& m) const noexcept
   {
@@ -331,10 +342,10 @@ public:
   // матрично-матричные операции
   TDynamicMatrix operator+(const TDynamicMatrix& m)
   {
-    if (m.sz != sz)
-    {
-      throw "We cannot add quadratic matrix to quadratic matrix with different sizes";
-    }
+    // if (m.sz != sz)
+    // {
+    //   throw "We cannot add quadratic matrix to quadratic matrix with different sizes";
+    // }
     TDynamicMatrix res(sz);
     for (int i = 0;i<sz;i++)
     {

@@ -1,0 +1,263 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: gcc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      Р’РµСЂСЃРёСЏ MSBuild 17.12.12+1cce77968 РґР»СЏ .NET Framework
+      РЎР±РѕСЂРєР° РЅР°С‡Р°С‚Р° 11.12.2024 11:06:07.
+      
+      РџСЂРѕРµРєС‚ "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj" РІ СѓР·Р»Рµ 1 (С†РµР»РµРІС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ).
+      PrepareForBuild:
+        РЎРѕР·РґР°РЅРёРµ РєР°С‚Р°Р»РѕРіР° "Debug\\".
+      C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets(513,5): warning MSB8003: СЃРІРѕР№СЃС‚РІРѕ WindowsSDKDir РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РЅРµ РЅР°Р№РґРµРЅС‹ РЅРµРєРѕС‚РѕСЂС‹Рµ СЃСЂРµРґСЃС‚РІР° СЃР±РѕСЂРєРё. [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj]
+        РЎС‚СЂСѓРєС‚СѓСЂРёСЂРѕРІР°РЅРЅС‹Р№ РІС‹РІРѕРґ РІРєР»СЋС‡РµРЅ. Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ РґРёР°РіРЅРѕСЃС‚РёРєРё РєРѕРјРїРёР»СЏС‚РѕСЂР° Р±СѓРґРµС‚ РѕС‚СЂР°Р¶Р°С‚СЊ РёРµСЂР°СЂС…РёСЋ РѕС€РёР±РѕРє. РџРѕРґСЂРѕР±РЅРµРµ СЃРј. https://aka.ms/cpp/structured-output.
+        РЎРѕР·РґР°РЅРёРµ РєР°С‚Р°Р»РѕРіР° "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        РЎРѕР·РґР°РЅРёРµ "Debug\\CompilerIdC.tlog\\unsuccessfulbuild", С‚Р°Рє РєР°Рє Р±С‹Р»Рѕ Р·Р°РґР°РЅРѕ "AlwaysCreate".
+        РћР±СЂР°С‰РµРЅРёРµ Рє "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+      LINK : fatal error LNK1181: РЅРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РІС…РѕРґРЅРѕР№ С„Р°Р№Р» "kernel32.lib" [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj]
+      РЎР±РѕСЂРєР° РїСЂРѕРµРєС‚Р° "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj" Р·Р°РІРµСЂС€РµРЅР° (С†РµР»РµРІС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) СЃ РѕС€РёР±РєРѕР№.
+      
+      РћС€РёР±РєР° СЃР±РѕСЂРєРё.
+      
+      "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj" (С†РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) (1) ->
+      (Р¦РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ PrepareForBuild) -> 
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets(513,5): warning MSB8003: СЃРІРѕР№СЃС‚РІРѕ WindowsSDKDir РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РЅРµ РЅР°Р№РґРµРЅС‹ РЅРµРєРѕС‚РѕСЂС‹Рµ СЃСЂРµРґСЃС‚РІР° СЃР±РѕСЂРєРё. [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj]
+      
+      
+      "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj" (С†РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) (1) ->
+      (Р¦РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ Link) -> 
+        LINK : fatal error LNK1181: РЅРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РІС…РѕРґРЅРѕР№ С„Р°Р№Р» "kernel32.lib" [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj]
+      
+          РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёР№: 1
+          РћС€РёР±РѕРє: 1
+      
+      РџСЂРѕС€Р»Рѕ РІСЂРµРјРµРЅРё 00:00:00.69
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: gcc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      Р’РµСЂСЃРёСЏ MSBuild 17.12.12+1cce77968 РґР»СЏ .NET Framework
+      РЎР±РѕСЂРєР° РЅР°С‡Р°С‚Р° 11.12.2024 11:06:08.
+      
+      РџСЂРѕРµРєС‚ "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj" РІ СѓР·Р»Рµ 1 (С†РµР»РµРІС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ).
+      PrepareForBuild:
+        РЎРѕР·РґР°РЅРёРµ РєР°С‚Р°Р»РѕРіР° "Debug\\".
+      C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets(513,5): warning MSB8003: СЃРІРѕР№СЃС‚РІРѕ WindowsSDKDir РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РЅРµ РЅР°Р№РґРµРЅС‹ РЅРµРєРѕС‚РѕСЂС‹Рµ СЃСЂРµРґСЃС‚РІР° СЃР±РѕСЂРєРё. [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj]
+        РЎС‚СЂСѓРєС‚СѓСЂРёСЂРѕРІР°РЅРЅС‹Р№ РІС‹РІРѕРґ РІРєР»СЋС‡РµРЅ. Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ РґРёР°РіРЅРѕСЃС‚РёРєРё РєРѕРјРїРёР»СЏС‚РѕСЂР° Р±СѓРґРµС‚ РѕС‚СЂР°Р¶Р°С‚СЊ РёРµСЂР°СЂС…РёСЋ РѕС€РёР±РѕРє. РџРѕРґСЂРѕР±РЅРµРµ СЃРј. https://aka.ms/cpp/structured-output.
+        РЎРѕР·РґР°РЅРёРµ РєР°С‚Р°Р»РѕРіР° "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        РЎРѕР·РґР°РЅРёРµ "Debug\\CompilerIdC.tlog\\unsuccessfulbuild", С‚Р°Рє РєР°Рє Р±С‹Р»Рѕ Р·Р°РґР°РЅРѕ "AlwaysCreate".
+        РћР±СЂР°С‰РµРЅРёРµ Рє "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+      LINK : fatal error LNK1181: РЅРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РІС…РѕРґРЅРѕР№ С„Р°Р№Р» "kernel32.lib" [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj]
+      РЎР±РѕСЂРєР° РїСЂРѕРµРєС‚Р° "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj" Р·Р°РІРµСЂС€РµРЅР° (С†РµР»РµРІС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) СЃ РѕС€РёР±РєРѕР№.
+      
+      РћС€РёР±РєР° СЃР±РѕСЂРєРё.
+      
+      "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj" (С†РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) (1) ->
+      (Р¦РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ PrepareForBuild) -> 
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets(513,5): warning MSB8003: СЃРІРѕР№СЃС‚РІРѕ WindowsSDKDir РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РЅРµ РЅР°Р№РґРµРЅС‹ РЅРµРєРѕС‚РѕСЂС‹Рµ СЃСЂРµРґСЃС‚РІР° СЃР±РѕСЂРєРё. [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj]
+      
+      
+      "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj" (С†РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) (1) ->
+      (Р¦РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ Link) -> 
+        LINK : fatal error LNK1181: РЅРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РІС…РѕРґРЅРѕР№ С„Р°Р№Р» "kernel32.lib" [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdC\\CompilerIdC.vcxproj]
+      
+          РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёР№: 1
+          РћС€РёР±РѕРє: 1
+      
+      РџСЂРѕС€Р»Рѕ РІСЂРµРјРµРЅРё 00:00:00.38
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1205 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:86 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+      gcc: fatal error: no input files
+      compilation terminated.
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1205 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:86 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+      gcc: fatal error: no input files
+      compilation terminated.
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: g++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      Р’РµСЂСЃРёСЏ MSBuild 17.12.12+1cce77968 РґР»СЏ .NET Framework
+      РЎР±РѕСЂРєР° РЅР°С‡Р°С‚Р° 11.12.2024 11:06:08.
+      
+      РџСЂРѕРµРєС‚ "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" РІ СѓР·Р»Рµ 1 (С†РµР»РµРІС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ).
+      PrepareForBuild:
+        РЎРѕР·РґР°РЅРёРµ РєР°С‚Р°Р»РѕРіР° "Debug\\".
+      C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets(513,5): warning MSB8003: СЃРІРѕР№СЃС‚РІРѕ WindowsSDKDir РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РЅРµ РЅР°Р№РґРµРЅС‹ РЅРµРєРѕС‚РѕСЂС‹Рµ СЃСЂРµРґСЃС‚РІР° СЃР±РѕСЂРєРё. [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+        РЎС‚СЂСѓРєС‚СѓСЂРёСЂРѕРІР°РЅРЅС‹Р№ РІС‹РІРѕРґ РІРєР»СЋС‡РµРЅ. Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ РґРёР°РіРЅРѕСЃС‚РёРєРё РєРѕРјРїРёР»СЏС‚РѕСЂР° Р±СѓРґРµС‚ РѕС‚СЂР°Р¶Р°С‚СЊ РёРµСЂР°СЂС…РёСЋ РѕС€РёР±РѕРє. РџРѕРґСЂРѕР±РЅРµРµ СЃРј. https://aka.ms/cpp/structured-output.
+        РЎРѕР·РґР°РЅРёРµ РєР°С‚Р°Р»РѕРіР° "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        РЎРѕР·РґР°РЅРёРµ "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild", С‚Р°Рє РєР°Рє Р±С‹Р»Рѕ Р·Р°РґР°РЅРѕ "AlwaysCreate".
+        РћР±СЂР°С‰РµРЅРёРµ Рє "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+      LINK : fatal error LNK1181: РЅРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РІС…РѕРґРЅРѕР№ С„Р°Р№Р» "kernel32.lib" [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      РЎР±РѕСЂРєР° РїСЂРѕРµРєС‚Р° "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" Р·Р°РІРµСЂС€РµРЅР° (С†РµР»РµРІС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) СЃ РѕС€РёР±РєРѕР№.
+      
+      РћС€РёР±РєР° СЃР±РѕСЂРєРё.
+      
+      "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (С†РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) (1) ->
+      (Р¦РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ PrepareForBuild) -> 
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets(513,5): warning MSB8003: СЃРІРѕР№СЃС‚РІРѕ WindowsSDKDir РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РЅРµ РЅР°Р№РґРµРЅС‹ РЅРµРєРѕС‚РѕСЂС‹Рµ СЃСЂРµРґСЃС‚РІР° СЃР±РѕСЂРєРё. [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+      
+      "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (С†РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) (1) ->
+      (Р¦РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ Link) -> 
+        LINK : fatal error LNK1181: РЅРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РІС…РѕРґРЅРѕР№ С„Р°Р№Р» "kernel32.lib" [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+          РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёР№: 1
+          РћС€РёР±РѕРє: 1
+      
+      РџСЂРѕС€Р»Рѕ РІСЂРµРјРµРЅРё 00:00:00.44
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: g++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      Р’РµСЂСЃРёСЏ MSBuild 17.12.12+1cce77968 РґР»СЏ .NET Framework
+      РЎР±РѕСЂРєР° РЅР°С‡Р°С‚Р° 11.12.2024 11:06:09.
+      
+      РџСЂРѕРµРєС‚ "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" РІ СѓР·Р»Рµ 1 (С†РµР»РµРІС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ).
+      PrepareForBuild:
+        РЎРѕР·РґР°РЅРёРµ РєР°С‚Р°Р»РѕРіР° "Debug\\".
+      C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets(513,5): warning MSB8003: СЃРІРѕР№СЃС‚РІРѕ WindowsSDKDir РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РЅРµ РЅР°Р№РґРµРЅС‹ РЅРµРєРѕС‚РѕСЂС‹Рµ СЃСЂРµРґСЃС‚РІР° СЃР±РѕСЂРєРё. [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+        РЎС‚СЂСѓРєС‚СѓСЂРёСЂРѕРІР°РЅРЅС‹Р№ РІС‹РІРѕРґ РІРєР»СЋС‡РµРЅ. Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ РґРёР°РіРЅРѕСЃС‚РёРєРё РєРѕРјРїРёР»СЏС‚РѕСЂР° Р±СѓРґРµС‚ РѕС‚СЂР°Р¶Р°С‚СЊ РёРµСЂР°СЂС…РёСЋ РѕС€РёР±РѕРє. РџРѕРґСЂРѕР±РЅРµРµ СЃРј. https://aka.ms/cpp/structured-output.
+        РЎРѕР·РґР°РЅРёРµ РєР°С‚Р°Р»РѕРіР° "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        РЎРѕР·РґР°РЅРёРµ "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild", С‚Р°Рє РєР°Рє Р±С‹Р»Рѕ Р·Р°РґР°РЅРѕ "AlwaysCreate".
+        РћР±СЂР°С‰РµРЅРёРµ Рє "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+      LINK : fatal error LNK1181: РЅРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РІС…РѕРґРЅРѕР№ С„Р°Р№Р» "kernel32.lib" [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      РЎР±РѕСЂРєР° РїСЂРѕРµРєС‚Р° "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" Р·Р°РІРµСЂС€РµРЅР° (С†РµР»РµРІС‹Рµ РѕР±СЉРµРєС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) СЃ РѕС€РёР±РєРѕР№.
+      
+      РћС€РёР±РєР° СЃР±РѕСЂРєРё.
+      
+      "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (С†РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) (1) ->
+      (Р¦РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ PrepareForBuild) -> 
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppBuild.targets(513,5): warning MSB8003: СЃРІРѕР№СЃС‚РІРѕ WindowsSDKDir РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РЅРµ РЅР°Р№РґРµРЅС‹ РЅРµРєРѕС‚РѕСЂС‹Рµ СЃСЂРµРґСЃС‚РІР° СЃР±РѕСЂРєРё. [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+      
+      "C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (С†РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ) (1) ->
+      (Р¦РµР»РµРІРѕР№ РѕР±СЉРµРєС‚ Link) -> 
+        LINK : fatal error LNK1181: РЅРµ СѓРґР°РµС‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ РІС…РѕРґРЅРѕР№ С„Р°Р№Р» "kernel32.lib" [C:\\Users\\User\\Documents\\second lab\\mp2-lab2-matrix\\b2\\CMakeFiles\\3.30.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+          РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёР№: 1
+          РћС€РёР±РѕРє: 1
+      
+      РџСЂРѕС€Р»Рѕ РІСЂРµРјРµРЅРё 00:00:00.38
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1205 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:86 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+      g++: fatal error: no input files
+      compilation terminated.
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1205 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:86 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+      g++: fatal error: no input files
+      compilation terminated.
+...
