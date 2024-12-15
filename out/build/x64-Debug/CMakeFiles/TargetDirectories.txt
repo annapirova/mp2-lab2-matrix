@@ -1,0 +1,13 @@
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/samples/CMakeFiles/sample.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/samples/CMakeFiles/edit_cache.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/samples/CMakeFiles/rebuild_cache.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/gtest/CMakeFiles/gtest.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/gtest/CMakeFiles/edit_cache.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/gtest/CMakeFiles/rebuild_cache.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/test/CMakeFiles/TestMain.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/test/CMakeFiles/TestTMatrix.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/test/CMakeFiles/TestTVector.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/test/CMakeFiles/edit_cache.dir
+C:/IT/mp2-lab2-matrix/out/build/x64-Debug/test/CMakeFiles/rebuild_cache.dir
