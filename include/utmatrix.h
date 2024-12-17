@@ -287,7 +287,7 @@ public:
         }
         for (size_t i = 0; i < sz; i++)
         {
-            pMem[i] = TDynamicVector<T>(sz); // инициализация каждого вектора
+            pMem[i] = TDynamicVector<T>(sz); // инициализация каждого вектор
         }
     }
 
